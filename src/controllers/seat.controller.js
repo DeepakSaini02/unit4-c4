@@ -15,6 +15,14 @@ router.post('/',async(req,res)=>{
         return res.status(500).json({status:"failed",message:e.message})
     }
 })
+router.get("/",async(req,res)=>{
+    try{
+        const seat=await Seat.find().populate("movie").lean().exec()
+        return res.status(201).send({seat})
+    }catch(e){
+        return res.status(500).json({status:"failed",message:e.message})
+    }
+})
 
 
 

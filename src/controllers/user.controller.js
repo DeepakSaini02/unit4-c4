@@ -22,4 +22,18 @@ router.post('/',upload.single("poster_url"),async(req,res)=>{
     }
 })
 
+router.get("/:actor",async(req,res)=>{
+    try{
+    
+        const movie=await Movie.find({actors:req.params.actor}).lean().exec()
+        return res.status(201).send({movie})
+    }catch(e){
+        return res.status(500).json({status:"failed",message:e.message})
+    }
+})
+
+
+
+
+
 module.exports=router

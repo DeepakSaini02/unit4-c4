@@ -3,6 +3,7 @@ const User=require('../models/user.model')
 const Movie=require('../models/movie.model')
 const upload=require('../middlewares/upload')
 const Show=require('../models/show.model')
+
 // const User=require('../models/user.model')
 const express=require('express')
 const router=express.Router()
@@ -24,6 +25,7 @@ router.get("/:movie",async(req,res)=>{
         return res.status(500).json({status:"failed",message:e.message})
     }
 })
+
 
 
 
