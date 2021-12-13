@@ -1,6 +1,7 @@
 require('dotenv').config();
 const jwt=require('jsonwebtoken')
 const User=require('../models/user.model')
+const upload=require('../middlewares/upload')
 
 const newToken=(user)=>{
     return jwt.sign({user:user},process.env.JWT_ACCESS_KEY)
@@ -9,7 +10,6 @@ const newToken=(user)=>{
 const register=async(req,res)=>{
     try{
         let user=await User.findOne({email:req.body.email}).lean().exec()
-
         if(user)
         return res.status(400).json({status:'failed',message:'email exists'})
 
@@ -25,7 +25,7 @@ const register=async(req,res)=>{
 
 const login=async(req,res)=>{
     try{
-        let user=await User.findOne({email:req.body.email}).lean().exec()
+        let user=await User.findOne({email:req.body.email})
 
         if(!user)
         return res.status(400).json({status:'failed',message:'email not exists'})
