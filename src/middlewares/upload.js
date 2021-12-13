@@ -12,16 +12,11 @@ const storage = multer.diskStorage({
   })
 
 
-  function fileFilter (req, file, callback) {
-
+  const fileFilter=(req, file, callback)=> {
    if(file.mimetype=='image/jpeg' || file.mimetype=='image/png')
     callback(null, true)
-  
-    // To accept the file pass `true`, like so:
     else
     callback(null, false)
-
-  
   }
   
  module.exports=multer({
