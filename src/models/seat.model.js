@@ -2,7 +2,7 @@ const {Schema,model}=require('mongoose')
 
 const seatSchema=new Schema({
     show:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:Schema.Types.ObjectId,
         ref:'show',
         required:true
     },

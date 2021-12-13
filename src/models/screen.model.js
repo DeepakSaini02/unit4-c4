@@ -3,7 +3,7 @@ const {Schema,model}=require('mongoose')
 const screenSchema=new Schema({
     name:{type:String,required:true},
     theatre:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:Schema.Types.ObjectId,
         ref:'theatre',
         required:true
     }
