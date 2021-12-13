@@ -27,7 +27,7 @@ router.get("/:movie",async(req,res)=>{
         return res.status(500).json({status:"failed",message:e.message})
     }
 })
-router.get("/shows/:location",async(req,res)=>{
+router.get("/screen/:location",async(req,res)=>{
     try{
         const theatre=await Theatre.find({location:req.params.location}).lean().exec()
         const screen=await Screen.find({theatre:theatre}).lean().exec()
