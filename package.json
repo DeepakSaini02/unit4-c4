@@ -19,7 +19,10 @@
   },
   "homepage": "https://github.com/DeepakSaini02/unit4-c4#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.1",
     "multer": "^1.4.4"
   }
